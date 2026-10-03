@@ -1,0 +1,40 @@
+# Options ML Project Configuration
+
+data:
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  repo_url: "SaidBahaDev/options-data"
+  symbols:
+    - SPY
+    # - QQQ
+    # - IWM
+  start_year: 2008
+  end_year: 2025
+
+strategy:
+  min_dte: 7
+  max_dte: 90
+  min_volume: 10
+  min_open_interest: 50
+  max_spread_pct: 0.15
+  holding_period_days: 
+    - 1
+    - 5
+    - 10
+  entry_price: "ask"
+  exit_price: "bid"
+
+backtest:
+  transaction_costs:
+    commission_per_contract: 0.65
+    slippage: 0.01
+
+model:
+  random_seed: 42
+  train_start: "2008-01-01"
+  train_end: "2018-12-31"
+  val_start: "2019-01-01"
+  val_end: "2020-12-31"
+  test_start: "2021-01-01"
+  test_end: "2022-12-31"
